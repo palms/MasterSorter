@@ -1,0 +1,296 @@
+/***********************************************************************
+File:             Questions.txt
+Course:           CS 367, Fall 2011
+
+Author:           <your name and email address>
+CS Login:         <your CS login name>
+
+Completion Date:  <date you completed this source file>
+***********************************************************************/
+
+Directions: answer the following five (5) questions.
+
+
+1) Each sort algorithm is supposed to put the elements of the input
+array into ascending order.  How did you test your code to determine
+if it did this?
+
+Answer:
+After each run of a particular sort, I compared A[i] with A[i+1] for every i value in array A (other than the value at the final position of A). If A[i] was larger than A[i+1] then the array was not in sorted order. I also visually checked by outputting the sorted values to the console (using arrays of size 5000 and less).
+
+
+2) In this question you will run TestSorts four times using the
+parameters indicated in the table:
+
+    run 1: 50 123456
+    run 2: 500 123456
+    run 3: 5000 123456
+    run 4: 50000 123456
+
+What are the sort statistics for each of the runs?
+
+Answer:
+run 1:
+# items: 50     random seed: 123456
+
+algorithm        data compares     data moves   milliseconds
+---------        -------------     ----------   ------------
+selection                1,225            284              0
+insertion                  720            773              1
+merge                      221            572              0
+quick                      273            354              0
+heap                       412            782              1
+shaker                   1,029          2,025              0
+2-way insertion            447            515              0
+
+
+run 2:
+# items: 500     random seed: 123456
+
+algorithm        data compares     data moves   milliseconds
+---------        -------------     ----------   ------------
+selection              124,750          4,053             10
+insertion               65,195         65,700              5
+merge                    3,857          8,976              0
+quick                    4,874          4,353              0
+heap                     7,588         13,307              1
+shaker                  99,235        194,106             10
+2-way insertion         43,776         44,432              4
+
+run 3:
+# items: 5,000     random seed: 123456
+
+algorithm        data compares     data moves   milliseconds
+---------        -------------     ----------   ------------
+selection           12,497,500         49,208             78
+insertion            6,213,696      6,218,701             55
+merge                   55,230        123,616             23
+quick                   65,256         55,944              7
+heap                   109,658        184,472             21
+shaker               9,322,279     18,626,109             90
+2-way insertion      4,171,551      4,177,731            138
+
+run 4:
+# items: 50,000     random seed: 123456
+
+algorithm        data compares     data moves   milliseconds
+---------        -------------     ----------   ------------
+selection        1,249,975,000        621,564          5,620
+insertion          625,067,014    625,117,021          2,440
+merge                  718,101      1,568,928            289
+quick                  850,529        677,112            112
+heap                 1,430,229      2,344,244            244
+shaker             940,069,695  1,875,051,069          8,649
+2-way insertion    417,389,924    417,452,143          2,023
+
+
+
+3) In this question you again will run TestSorts four times using the
+parameters indicated in the table:
+
+    run 5: 1000 13579
+    run 6: 1000 13579
+    run 7: 1000 13579
+    run 8: 1000 13579
+
+What are the sort statistics for each of the runs?
+
+Answer:
+run 5:
+# items: 1,000     random seed: 13579
+
+algorithm        data compares     data moves   milliseconds
+---------        -------------     ----------   ------------
+selection              499,500          8,554             30
+insertion              249,135        250,143             19
+merge                    8,695         19,952              2
+quick                   10,034          9,519              1
+heap                    17,211         29,728              3
+shaker                 370,459        744,435             22
+2-way insertion        163,272        164,521             14
+
+
+run 6:
+# items: 1,000     random seed: 13579
+
+algorithm        data compares     data moves   milliseconds
+---------        -------------     ----------   ------------
+selection              499,500          8,554             30
+insertion              249,135        250,143             19
+merge                    8,695         19,952              2
+quick                   10,034          9,519              1
+heap                    17,211         29,728              3
+shaker                 370,459        744,435             14
+2-way insertion        163,272        164,521             13
+
+run 7:
+# items: 1,000     random seed: 13579
+
+algorithm        data compares     data moves   milliseconds
+---------        -------------     ----------   ------------
+selection              499,500          8,554             30
+insertion              249,135        250,143             19
+merge                    8,695         19,952              2
+quick                   10,034          9,519              1
+heap                    17,211         29,728              3
+shaker                 370,459        744,435             14
+2-way insertion        163,272        164,521             14
+
+run 8:
+# items: 1,000     random seed: 13579
+
+algorithm        data compares     data moves   milliseconds
+---------        -------------     ----------   ------------
+selection              499,500          8,554             29
+insertion              249,135        250,143             20
+merge                    8,695         19,952              2
+quick                   10,034          9,519              1
+heap                    17,211         29,728              2
+shaker                 370,459        744,435             14
+2-way insertion        163,272        164,521             13
+
+
+4) In this question you will run TestSorts four times using the
+parameters indicated in the table:
+
+    run  9: 4000 43210
+    run 10: 4000 43210
+    run 11: 4000 43210
+    run 12: 4000 43210
+
+- For run 9 you will use the TestSorts program as originally written.
+
+- For run 10 you will modify the TestSorts program so that instead of
+  creating an input array of random integers, it creates an input
+  array that is already in ascending order.  The easiest way to do
+  this is to replace the line:
+
+      arr[k] = new InstrumentedInt(random.nextInt());
+
+  with the line:
+
+      arr[k] = new InstrumentedInt(k);
+
+- For run 11 you will modify the TestSorts program so that it creates
+  an input array that is already in descending order. The easiest way
+  to do this is to replace the line:
+
+      arr[k] = new InstrumentedInt(random.nextInt());
+
+  with the line:
+
+      arr[k] = new InstrumentedInt(arrSize - k);
+
+- For run 12 you will modify the TestSorts program so that it creates
+  an input array that contains the same value in every position. The 
+  easiest way to do this is to replace the line:
+
+      arr[k] = new InstrumentedInt(random.nextInt());
+
+  with the line:
+
+      arr[k] = new InstrumentedInt(1);
+
+What are the sort statistics for each of the runs?
+
+Answer:
+run 9:
+# items: 4,000     random seed: 43210
+
+algorithm        data compares     data moves   milliseconds
+---------        -------------     ----------   ------------
+selection            7,998,000         39,545             58
+insertion            4,038,687      4,042,694             52
+merge                   42,840         95,808             17
+quick                   50,669         43,758              5
+heap                    84,843        142,837             18
+shaker               6,025,915     12,104,088             61
+2-way insertion      2,635,618      2,640,670            130
+
+run 10:
+# items: 4,000     random seed: 43210
+
+algorithm        data compares     data moves   milliseconds
+---------        -------------     ----------   ------------
+selection            7,998,000         12,000             56
+insertion                3,999          7,998              1
+merge                   24,176         95,808             16
+quick                   43,915         11,712              4
+heap                   113,752        243,505             27
+shaker                   3,999              0              0
+2-way insertion          5,998          7,996              1
+
+run 11:
+# items: 4,000     random seed: 43210
+
+algorithm        data compares     data moves   milliseconds
+---------        -------------     ----------   ------------
+selection            7,998,000      4,012,000             57
+insertion            7,998,000      8,005,998             94
+merge                   23,728         95,808             16
+quick                   66,085         29,685              7
+heap                    80,151        128,311             17
+shaker               8,000,000     23,994,000             61
+2-way insertion          5,998         13,996              1
+
+run 12:
+# items: 4,000     random seed: 43210
+
+algorithm        data compares     data moves   milliseconds
+---------        -------------     ----------   ------------
+selection            7,998,000         12,000             55
+insertion                3,999          7,998              1
+merge                   23,728         95,808             15
+quick                   42,223         66,120              6
+heap                    11,994         16,000              3
+shaker                   3,999              0              0
+2-way insertion          5,998          7,996              0
+
+
+5) Briefly analyze your results from questions 2, 3, and 4.  Your
+analysis should consider the following:
+
+    - Are your results are consistent with the complexities of the
+      sorting algorithms (as derived in class and homework 8)?
+
+    - How does the size of the input array affect a sort's performance
+      relative to other sorts?
+
+    - How does the order of values in the input array (runs 9-12) affect
+      a sort's performance relative to other sorts?
+
+    - Which of the statistics (compares, data moves, time) provides
+      the most useful information for determining the efficiency of a
+      sort?
+
+You should back up your analysis with examples and specific references
+to your results.
+
+Answer:
+The results are consistent with the known complexities of the algorithms. For example,
+when the array used is already in sorted order, insertion, merge, shaker and 2-way insertion sorts all have millisecond results that are very close to 0 (if they aren't 0). Shaker, selection and insertion sort all took their longest proportional time while sorting an array that was in descending order. 2-way Insertion sort did this very quickly. On an array in random order, quick sort was the fastest, followed by merge sort and heap sort, while selection and insertion sorts took the longest. These facts are all in line with the known complexities of these sorts (worst-case and what causes their worst-case complexities).
+
+Any particular sort will take more time and make more data comparisons and moves when the array size is increased (as shown in runs 1 - 4). A sort maintains it's proportionality to other sorts when the array size increases (e.g. heap sort always takes about twice as long (and makes about twice as many comparisons) as quick sort regardless of the size of the array because the comparisons and time taken inreases proportionally with all sorts.
+
+When the array was already in sorted order (also discussed above):
+Merge, Heap and Selection sorts showed similar times to when their input arrays were in random order. Heap had many more comparisons and about twice as many movements, while Merge had half as many comparisons and the same number of movements and selection had almost a quarter of its original movements and the same comparisons.  The remaining sorts took exponentially less time, comparions and movements (shaker had zero data movements).
+
+When the array was in reversed order (also discussed above) compared to original, randomized ordering:
+Selection: similar time and same comparisons but about 100 times as many data movements.
+Insertion: about twice as much time taken, comparisons and movements.
+Merge: half as many comparisons, similar time and movements (near identical to SORTED ORDER, with fewer comparisons).
+Quick: about 2/3 of the original comparisons made, about 3/4 of the movements and time taken.
+Heap: Slightly less time taken, movements and comparisons.
+Shaker: More comparisons, twice as many movements but similar time.
+2-way Insetion: Similar time and comparisons to SORTED ORDER, about 2/3 the movements.
+
+When array contained the same element in every position, as compared to original ordering:
+Selection: near identical statistics to sorted order
+Insertion: also, near identical statistics to sorted order.
+Merge: identical to REVERSED ORDER.
+Quick: fewer comparisons, increased movement, similar time.
+Heap: Nearly 10 times fewer movements, nearly half as many comparisons and a time approaching zero.
+Shaker: Identical to SORTED ORDER.
+2-way Insetion: Identical to SORTED ORDER.
+
+Data Movement data seems to provide the most useful information for determining the efficiency of a particular sort.  Sorts may make many comparisons but still take very little time and vice versa.  Time may be relatively efficient, however there are many factors that can skew the results of measuring the time taken by a sort so it is not nearly reliable as the data for comparisons and movements made (which are consistent given constant command-line arguments).
